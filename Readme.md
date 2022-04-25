@@ -8,7 +8,7 @@ Benchmarco is a simple graphical user interface to analize CPU, GPU and memory p
 
 ![Screenshot](./screenshots/1.png)
 
-### Understanding clock values
+#### Understanding clock values
 - gpc
     - frequency of graphics (shader) clock.
 - sm
