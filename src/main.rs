@@ -4,8 +4,8 @@ use std::time::Duration;
 use wgpu_glyph::{ab_glyph, GlyphBrushBuilder, Section, Text};
 use systemstat::{System, Platform, saturating_sub_bytes};
 
-pub const W: u32 = 150;
-pub const H: u32 = 300;
+pub const W: u32 = 160;
+pub const H: u32 = 280;
 
 fn main() -> Result<(), Box<dyn Error>> {
     // Open window and create a surface
@@ -180,7 +180,7 @@ fn main() -> Result<(), Box<dyn Error>> {
                 );
 
                 glyph_brush.queue(Section {
-                    screen_position: (0.0, 0.0),
+                    screen_position: (10.0, 5.0),
                     bounds: (W as f32, H as f32),
                     text: vec![Text::new(&res)
                         .with_color([1.0, 1.0, 1.0, 1.0])
