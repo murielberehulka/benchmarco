@@ -1,0 +1,14 @@
+[package]
+name = "benchmarco"
+version = "0.1.0"
+authors = ["Muriel Berehulka <murielberehulka@hotmail.com>"]
+edition = "2021"
+resolver = "2"
+
+[dependencies]
+winit = "0.26"
+wgpu = "0.12"
+glyph_brush = "0.7"
+wgpu_glyph = "0.16"
+futures = "0.3"
+systemstat = "0.1.10"
