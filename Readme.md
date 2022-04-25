@@ -8,6 +8,17 @@ Benchmarco is a simple graphical user interface to analize CPU, GPU and memory p
 
 ![Screenshot](./screenshots/1.png)
 
+### Understanding clock values
+- gpc
+    - frequency of graphics (shader) clock.
+- sm
+    - frequency of SM (Streaming Multiprocessor) clock.
+- mem
+    - frequency of memory clock.
+- vdo
+    - frequency of video encoder/decoder clock.
+
+
 ## 🚀 Running
 ```
 cargo run --release
