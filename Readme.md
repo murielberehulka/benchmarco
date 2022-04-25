@@ -4,7 +4,7 @@
 ![APIs](https://img.shields.io/badge/Vulkan-gray?logo=Vulkan&style=flat-square)
 ![Platforms](https://img.shields.io/badge/platforms-windows%20%7C%20linux%20-red?style=flat-square)
 
-Benchmarco is a simple Graphical user interface to analize CPU, GPU and memory performance.
+Benchmarco is a simple graphical user interface to analize CPU, GPU and memory performance.
 
 ![Screenshot](./screenshots/1.png)
 
