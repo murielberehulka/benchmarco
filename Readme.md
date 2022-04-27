@@ -20,8 +20,8 @@ Benchmarco is a simple graphical user interface to analize CPU, GPU and memory p
 
 ### Todo
 
-[ ] Windows support
-[ ] AMD GPU support (not planing to do until i get one :)
+- [ ] Windows support
+- [ ] AMD GPU support (not planing to do until i get one :)
 
 ## 🚀 Running
 
