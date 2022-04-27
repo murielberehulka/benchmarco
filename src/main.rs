@@ -139,7 +139,6 @@ fn main() -> Result<(), Box<dyn Error>> {
                             let mem_free = String::from_utf8_lossy(&get_value(&lines[82].as_bytes(), 4)).parse::<u32>().unwrap();
                             let mem_used = mem_total - mem_free;
                             let usage = String::from_utf8_lossy(&get_value(&lines[89].as_bytes(), 2));
-                            let fps = String::from_utf8_lossy(&get_value(&lines[95].as_bytes(), 0));
                             let tmp = String::from_utf8_lossy(&get_value(&lines[121].as_bytes(), 2));
                             let clock_graphics = String::from_utf8_lossy(&get_value(&lines[137].as_bytes(), 4)).parse::<u32>().unwrap();
                             let clock_graphics_max = String::from_utf8_lossy(&get_value(&lines[148].as_bytes(), 4)).parse::<u32>().unwrap();
@@ -149,9 +148,9 @@ fn main() -> Result<(), Box<dyn Error>> {
                             let clock_mem_max = String::from_utf8_lossy(&get_value(&lines[150].as_bytes(), 4)).parse::<u32>().unwrap();
                             let clock_video = String::from_utf8_lossy(&get_value(&lines[140].as_bytes(), 4)).parse::<u32>().unwrap();
                             let clock_video_max = String::from_utf8_lossy(&get_value(&lines[151].as_bytes(), 4)).parse::<u32>().unwrap();
-                            format!("usg  {}%\ntmp  {}°C\nfps  {}\nfan  {}%\nmem  {}%  {}/{}\nclock\n  gpc  {: >2}%  {}/{}\n  sm   {: >2}%  {}/{}\n\
+                            format!("usg  {}%\ntmp  {}°C\nfan  {}%\nmem  {}%  {}/{}\nclock\n  gpc  {: >2}%  {}/{}\n  sm   {: >2}%  {}/{}\n\
                             \t  mem  {: >2}%  {}/{}\n  vdo  {: >2}%  {}/{}",
-                                usage, tmp, fps, fan, mem_total/mem_used, mem_used, mem_total,
+                                usage, tmp, fan, mem_total/mem_used, mem_used, mem_total,
                                 clock_graphics_max/clock_graphics, clock_graphics, clock_graphics_max,
                                 clock_mem_max/clock_mem, clock_mem, clock_mem_max,
                                 clock_sm_max/clock_sm, clock_sm, clock_sm_max, 

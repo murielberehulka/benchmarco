@@ -18,11 +18,19 @@ Benchmarco is a simple graphical user interface to analize CPU, GPU and memory p
 - vdo
     - frequency of video encoder/decoder clock.
 
+### Todo
+
+[ ] Windows support
+[ ] AMD GPU support (not planing to do until i get one :)
 
 ## 🚀 Running
+
+Run the command if you want to build this yourself.
 ```
 cargo run --release
 ```
 
+nvidia driver is needed.
+
 ## License
-Use the code as you want :)
+Use the code as you want.
