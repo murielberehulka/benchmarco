@@ -135,26 +135,33 @@ fn main() -> Result<(), Box<dyn Error>> {
                             let res = String::from_utf8_lossy(&res.stdout);
                             let lines: Vec<&str> = res.split('\n').collect();
                             let fan = String::from_utf8_lossy(&get_value(&lines[66].as_bytes(), 2));
-                            let mem_total = String::from_utf8_lossy(&get_value(&lines[79].as_bytes(), 4)).parse::<u32>().unwrap();
-                            let mem_free = String::from_utf8_lossy(&get_value(&lines[82].as_bytes(), 4)).parse::<u32>().unwrap();
+                            let mem_total = String::from_utf8_lossy(&get_value(&lines[79].as_bytes(), 4)).parse::<f32>().unwrap();
+                            let mem_free = String::from_utf8_lossy(&get_value(&lines[82].as_bytes(), 4)).parse::<f32>().unwrap();
                             let mem_used = mem_total - mem_free;
                             let usage = String::from_utf8_lossy(&get_value(&lines[89].as_bytes(), 2));
                             let tmp = String::from_utf8_lossy(&get_value(&lines[121].as_bytes(), 2));
-                            let clock_graphics = String::from_utf8_lossy(&get_value(&lines[137].as_bytes(), 4)).parse::<u32>().unwrap();
-                            let clock_graphics_max = String::from_utf8_lossy(&get_value(&lines[148].as_bytes(), 4)).parse::<u32>().unwrap();
-                            let clock_sm = String::from_utf8_lossy(&get_value(&lines[138].as_bytes(), 4)).parse::<u32>().unwrap();
-                            let clock_sm_max = String::from_utf8_lossy(&get_value(&lines[149].as_bytes(), 4)).parse::<u32>().unwrap();
-                            let clock_mem = String::from_utf8_lossy(&get_value(&lines[139].as_bytes(), 4)).parse::<u32>().unwrap();
-                            let clock_mem_max = String::from_utf8_lossy(&get_value(&lines[150].as_bytes(), 4)).parse::<u32>().unwrap();
-                            let clock_video = String::from_utf8_lossy(&get_value(&lines[140].as_bytes(), 4)).parse::<u32>().unwrap();
-                            let clock_video_max = String::from_utf8_lossy(&get_value(&lines[151].as_bytes(), 4)).parse::<u32>().unwrap();
-                            format!("usg  {}%\ntmp  {}°C\nfan  {}%\nmem  {}%  {}/{}\nclock\n  gpc  {: >2}%  {}/{}\n  sm   {: >2}%  {}/{}\n\
-                            \t  mem  {: >2}%  {}/{}\n  vdo  {: >2}%  {}/{}",
-                                usage, tmp, fan, mem_total/mem_used, mem_used, mem_total,
-                                clock_graphics_max/clock_graphics, clock_graphics, clock_graphics_max,
-                                clock_mem_max/clock_mem, clock_mem, clock_mem_max,
-                                clock_sm_max/clock_sm, clock_sm, clock_sm_max, 
-                                clock_video_max/clock_video, clock_video, clock_video_max)
+                            let clock_graphics = String::from_utf8_lossy(&get_value(&lines[137].as_bytes(), 4)).parse::<f32>().unwrap();
+                            let clock_graphics_max = String::from_utf8_lossy(&get_value(&lines[148].as_bytes(), 4)).parse::<f32>().unwrap();
+                            let clock_sm = String::from_utf8_lossy(&get_value(&lines[138].as_bytes(), 4)).parse::<f32>().unwrap();
+                            let clock_sm_max = String::from_utf8_lossy(&get_value(&lines[149].as_bytes(), 4)).parse::<f32>().unwrap();
+                            let clock_mem = String::from_utf8_lossy(&get_value(&lines[139].as_bytes(), 4)).parse::<f32>().unwrap();
+                            let clock_mem_max = String::from_utf8_lossy(&get_value(&lines[150].as_bytes(), 4)).parse::<f32>().unwrap();
+                            let clock_video = String::from_utf8_lossy(&get_value(&lines[140].as_bytes(), 4)).parse::<f32>().unwrap();
+                            let clock_video_max = String::from_utf8_lossy(&get_value(&lines[151].as_bytes(), 4)).parse::<f32>().unwrap();
+                            format!(
+                                "usg  {}%\ntmp  {}°C\nfan  {}%\n\
+                                mem {: >3.0}%  {}/{}\n\
+                                clock\n  \
+                                gpc {: >3.0}%  {}/{}\n  \
+                                sm  {: >3.0}%  {}/{}\n  \
+                                mem {: >3.0}%  {}/{}\n  \
+                                vdo {: >3.0}%  {}/{}",
+                                usage, tmp, fan,
+                                (mem_used/mem_total)*100.0, mem_used, mem_total,
+                                (clock_graphics/clock_graphics_max)*100.0, clock_graphics, clock_graphics_max,
+                                (clock_mem/clock_mem_max)*100.0, clock_mem, clock_mem_max,
+                                (clock_sm/clock_sm_max)*100.0, clock_sm, clock_sm_max, 
+                                (clock_video/clock_video_max)*100.0, clock_video, clock_video_max)
                         },
                         Err(e) => format!("Error: {}", e)
                     },
